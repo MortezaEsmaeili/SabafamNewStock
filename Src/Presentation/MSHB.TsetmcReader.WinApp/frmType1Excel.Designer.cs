@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -85,6 +86,8 @@
             this.dg_InsData.Name = "dg_InsData";
             this.dg_InsData.ReadOnly = true;
             this.dg_InsData.RowHeadersWidth = 51;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dg_InsData.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dg_InsData.RowTemplate.Height = 24;
             this.dg_InsData.Size = new System.Drawing.Size(1098, 364);
             this.dg_InsData.TabIndex = 3;
@@ -107,14 +110,15 @@
             // 
             // InsCode
             // 
+            this.InsCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.InsCode.DataPropertyName = "InsCode";
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsCode.DefaultCellStyle = dataGridViewCellStyle1;
             this.InsCode.HeaderText = "InsCode";
-            this.InsCode.MinimumWidth = 6;
+            this.InsCode.MinimumWidth = 100;
             this.InsCode.Name = "InsCode";
             this.InsCode.ReadOnly = true;
-            this.InsCode.Width = 86;
+            this.InsCode.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Price100
             // 
@@ -213,6 +217,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
         private System.Windows.Forms.CheckBox Freez_CHB;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn InsCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price100;
         private System.Windows.Forms.DataGridViewTextBoxColumn PE100;
@@ -220,6 +225,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price500;
         private System.Windows.Forms.DataGridViewTextBoxColumn PE500;
         private System.Windows.Forms.DataGridViewTextBoxColumn Earning500;
-        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

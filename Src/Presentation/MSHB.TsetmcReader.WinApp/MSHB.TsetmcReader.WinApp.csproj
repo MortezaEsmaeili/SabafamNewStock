@@ -259,6 +259,12 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPleaseWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPleaseWait.Designer.cs">
+      <DependentUpon>frmPleaseWait.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPriceHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPleaseWait.resx">
+      <DependentUpon>frmPleaseWait.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPriceHistory.resx">
       <DependentUpon>frmPriceHistory.cs</DependentUpon>

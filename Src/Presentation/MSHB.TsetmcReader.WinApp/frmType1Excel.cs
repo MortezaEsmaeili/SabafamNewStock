@@ -142,22 +142,28 @@ namespace MSHB.TsetmcReader.WinApp
             folderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop;
             string path = ConfigReaderHelper.GetExcelFolderPath();
             folderBrowserDialog1.SelectedPath = ConfigReaderHelper.GetExcelFolderPath();
-           
+
             var result = folderBrowserDialog1.ShowDialog(this);
-            if (result == DialogResult.OK)
-            {
-                string selectedFolder = folderBrowserDialog1.SelectedPath;
-                foreach (var file in Directory.GetFiles(selectedFolder))
-                    loadFromExcel(file);
-                ConfigReaderHelper.SetExcelFolderPath(selectedFolder);
-            }
+            if (result != DialogResult.OK)
+                return;
+
+            var waitForm = new frmPleaseWait();
+            waitForm.Show(this);
+
+            string selectedFolder = folderBrowserDialog1.SelectedPath;
+            foreach (var file in Directory.GetFiles(selectedFolder))
+                loadFromExcel(file);
+            ConfigReaderHelper.SetExcelFolderPath(selectedFolder);
+
             CalculateMA();
             FillDataGrid();
+
+            waitForm.Close();
         }
         void CalculateMA()
         {
             StockMA_Data = new Dictionary<string, MA_Data>();
-            
+
             foreach (var insData in StockData)
             {
                 try
@@ -195,24 +201,20 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void loadFromExcel(string filePath)
         {
-            /*  var result = openExcelFileDialog.ShowDialog();
-              if (result != DialogResult.OK)
-                  return;*/
-
             var dataTable = ExelReader.ReadExcelFileDOM(filePath);
             if (dataTable == null)
             {
-                MessageBox.Show("Please close the Excel file or Excel file is empty!");
+                //         MessageBox.Show("Please close the Excel file or Excel file is empty!");
                 return;
             }
             FileInfo info = new FileInfo(filePath);
-            var insCode = info.Name;
+            var insCode = info.Name.Split('.')[0];
             if (StockData.ContainsKey(insCode) == true)
                 StockData.Remove(insCode);
             StockData.Add(insCode, new List<Price_PE>());
 
             int counter = 0;
-           
+
             foreach (var row in dataTable.ToArray())
             {
                 if (counter < 8 || row == null || row[1] == null)
@@ -227,15 +229,15 @@ namespace MSHB.TsetmcReader.WinApp
                     {
                         PE = pe,
                         Price = price,
-                        Earning = pe>0?(price/pe):-1
+                        Earning = pe > 0 ? (price / pe) : -1
                     };
                     StockData[insCode].Add(price_pe);
                 }
                 if (StockData[insCode].Count > 600)
                     break;
             }
-            decimal lastValidEaring = 0; 
-            for(int k= StockData[insCode].Count-1; k>=0; k--)
+            decimal lastValidEaring = 0;
+            for (int k = StockData[insCode].Count - 1; k >= 0; k--)
             {
                 if (StockData[insCode][k].Earning == -1)
                     StockData[insCode][k].Earning = lastValidEaring;
@@ -244,7 +246,7 @@ namespace MSHB.TsetmcReader.WinApp
             }
 
             //FillDataGrid();
-           // await SaveExcelDataInDB();
+            // await SaveExcelDataInDB();
         }
 
         private void FillDataGrid()
@@ -260,12 +262,12 @@ namespace MSHB.TsetmcReader.WinApp
                 {
                     dg_InsData.Rows.Add();
                     dg_InsData["InsCode", dgrow].Value = x.Key;
-                    dg_InsData["Price100", dgrow].Value = Math.Round( x.Value.Price100, 2);
-                    dg_InsData["PE100", dgrow].Value = Math.Round(x.Value.PE100,2);
-                    dg_InsData["Earning100", dgrow].Value = Math.Round(x.Value.Earning100,2);
-                    dg_InsData["Price500", dgrow].Value = Math.Round(x.Value.Price500,2);
-                    dg_InsData["PE500", dgrow].Value = Math.Round(x.Value.PE500,2);
-                    dg_InsData["Earning500", dgrow].Value = Math.Round(x.Value.Earning500,2);
+                    dg_InsData["Price100", dgrow].Value = Math.Round(x.Value.Price100, 2);
+                    dg_InsData["PE100", dgrow].Value = Math.Round(x.Value.PE100, 2);
+                    dg_InsData["Earning100", dgrow].Value = Math.Round(x.Value.Earning100, 2);
+                    dg_InsData["Price500", dgrow].Value = Math.Round(x.Value.Price500, 2);
+                    dg_InsData["PE500", dgrow].Value = Math.Round(x.Value.PE500, 2);
+                    dg_InsData["Earning500", dgrow].Value = Math.Round(x.Value.Earning500, 2);
                     dgrow++;
                 });
             }
