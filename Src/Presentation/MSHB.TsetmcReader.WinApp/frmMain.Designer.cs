@@ -88,19 +88,19 @@ namespace MSHB.TsetmcReader.WinApp
             // 
             this.tsmOpenBrowser.Enabled = false;
             this.tsmOpenBrowser.Name = "tsmOpenBrowser";
-            this.tsmOpenBrowser.Size = new System.Drawing.Size(224, 26);
+            this.tsmOpenBrowser.Size = new System.Drawing.Size(195, 26);
             this.tsmOpenBrowser.Text = "Start Reading ...";
             this.tsmOpenBrowser.Click += new System.EventHandler(this.tsmOpenBrowser_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(192, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
@@ -253,8 +253,9 @@ namespace MSHB.TsetmcReader.WinApp
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SabaFam TseTmc";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
-//            this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.Resize += new System.EventHandler(this.frmMain_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

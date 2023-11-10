@@ -4,12 +4,14 @@ using MSHB.TsetmcReader.Service.Contract;
 using MSHB.TsetmcReader.Service.Helper;
 using MSHB.TsetmcReader.Service.Impl;
 using MSHB.TsetmcReader.Service.Repository;
+using MSHB.TsetmcReader.WinApp.Helper;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -22,7 +24,8 @@ namespace MSHB.TsetmcReader.WinApp
 {
     public partial class frmType1Excel : Form
     {
-        public Dictionary<string, TargetPrice> InstrumentPriceDic;
+        public Dictionary<string, List<Price_PE>> StockData = new Dictionary<string, List<Price_PE>>();
+        public Dictionary<string, MA_Data> StockMA_Data;
         public bool loadExcel { get; set; }
         private IType1StockRepository _Type1StockRepo;
         private IInstrumentRepository _InstrumentRepo;
@@ -45,72 +48,74 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void RedisRepository_DataReady(Dictionary<long, decimal> results)
         {
-            if (InstrumentPriceDic == null || InstrumentPriceDic.Count == 0) return;
-            bool anyChange = false;
-            // InstrumentPriceDic.Values.AsParallel().ForAll(x =>
-            foreach (var x in InstrumentPriceDic.Values)
-            {
-                if (long.TryParse(x.InsCode, out var insCode))
-                {
-                    if (results.ContainsKey(insCode))
-                    {
-                        if (results[insCode] > 0)
-                        {
-                            x.CurrentPrice = results[insCode];
-                            if (x.CurrentPrice < 1)
-                                continue;
-                            anyChange = true;
-                            x.Target1PricePercentage = Math.Round(((x.TargetPrice1 / x.CurrentPrice) - 1) * 100, 1);
-                            x.Target2PricePercentage = Math.Round(((x.TargetPrice2 / x.CurrentPrice) - 1) * 100, 1);
-                            x.Target3PricePercentage = Math.Round(((x.TargetPrice3 / x.CurrentPrice) - 1) * 100, 1);
-                            x.PriceSupportPercentage = Math.Round(((x.CurrentPrice / x.SupportPrice) - 1) * 100, 1);
-                        }
-                    }
-                }
-            }
-            if (anyChange)
-            {
-                this.Invoke((MethodInvoker)(() => FillDataGrid()));
-            }
+            return;
+            //if (InstrumentPriceDic == null || InstrumentPriceDic.Count == 0) return;
+            //bool anyChange = false;
+            //// InstrumentPriceDic.Values.AsParallel().ForAll(x =>
+            //foreach (var x in InstrumentPriceDic.Values)
+            //{
+            //    if (long.TryParse(x.InsCode, out var insCode))
+            //    {
+            //        if (results.ContainsKey(insCode))
+            //        {
+            //            if (results[insCode] > 0)
+            //            {
+            //                x.CurrentPrice = results[insCode];
+            //                if (x.CurrentPrice < 1)
+            //                    continue;
+            //                anyChange = true;
+            //                x.Target1PricePercentage = Math.Round(((x.TargetPrice1 / x.CurrentPrice) - 1) * 100, 1);
+            //                x.Target2PricePercentage = Math.Round(((x.TargetPrice2 / x.CurrentPrice) - 1) * 100, 1);
+            //                x.Target3PricePercentage = Math.Round(((x.TargetPrice3 / x.CurrentPrice) - 1) * 100, 1);
+            //                x.PriceSupportPercentage = Math.Round(((x.CurrentPrice / x.SupportPrice) - 1) * 100, 1);
+            //            }
+            //        }
+            //    }
+            //}
+            //if (anyChange)
+            //{
+            //    this.Invoke((MethodInvoker)(() => FillDataGrid()));
+            //}
         }
 
         private void _tsetDataAnalyzer_OnResultReady(Dictionary<decimal, TsetmcDto> results)
         {
-            if (InstrumentPriceDic == null || InstrumentPriceDic.Count == 0) return;
-            bool anyChange = false;
-            // InstrumentPriceDic.Values.AsParallel().ForAll(x =>
-            foreach (var x in InstrumentPriceDic.Values)
-            {
-                if (decimal.TryParse(x.InsCode, out var insCode))
-                {
-                    if (results.ContainsKey(insCode))
-                    {
-                        if (results[insCode].Ltp != null && decimal.TryParse(results[insCode].Ltp, out decimal Ltp))
-                        {
-                            x.CurrentPrice = Ltp;
-                            if (x.CurrentPrice < 1)
-                                continue;
-                            anyChange = true;
-                            x.Target1PricePercentage = Math.Round(((x.TargetPrice1 / x.CurrentPrice) - 1) * 100, 1);
-                            x.Target2PricePercentage = Math.Round(((x.TargetPrice2 / x.CurrentPrice) - 1) * 100, 1);
-                            x.Target3PricePercentage = Math.Round(((x.TargetPrice3 / x.CurrentPrice) - 1) * 100, 1);
-                            x.PriceSupportPercentage = Math.Round(((x.CurrentPrice / x.SupportPrice) - 1) * 100, 1);
-                        }
-                    }
-                }
-            }
-            //);
-            if (anyChange)
-            {
-                this.Invoke((MethodInvoker)(() => FillDataGrid()));
-                /*   var act = new Action(FillDataGrid);
-                   if (this.InvokeRequired)
-                   {
-                       act.Invoke();
-                   }
-                   else
-                       act();*/
-            }
+            return;
+            //if (InstrumentPriceDic == null || InstrumentPriceDic.Count == 0) return;
+            //bool anyChange = false;
+            //// InstrumentPriceDic.Values.AsParallel().ForAll(x =>
+            //foreach (var x in InstrumentPriceDic.Values)
+            //{
+            //    if (decimal.TryParse(x.InsCode, out var insCode))
+            //    {
+            //        if (results.ContainsKey(insCode))
+            //        {
+            //            if (results[insCode].Ltp != null && decimal.TryParse(results[insCode].Ltp, out decimal Ltp))
+            //            {
+            //                x.CurrentPrice = Ltp;
+            //                if (x.CurrentPrice < 1)
+            //                    continue;
+            //                anyChange = true;
+            //                x.Target1PricePercentage = Math.Round(((x.TargetPrice1 / x.CurrentPrice) - 1) * 100, 1);
+            //                x.Target2PricePercentage = Math.Round(((x.TargetPrice2 / x.CurrentPrice) - 1) * 100, 1);
+            //                x.Target3PricePercentage = Math.Round(((x.TargetPrice3 / x.CurrentPrice) - 1) * 100, 1);
+            //                x.PriceSupportPercentage = Math.Round(((x.CurrentPrice / x.SupportPrice) - 1) * 100, 1);
+            //            }
+            //        }
+            //    }
+            //}
+            ////);
+            //if (anyChange)
+            //{
+            //    this.Invoke((MethodInvoker)(() => FillDataGrid()));
+            //    /*   var act = new Action(FillDataGrid);
+            //       if (this.InvokeRequired)
+            //       {
+            //           act.Invoke();
+            //       }
+            //       else
+            //           act();*/
+            //}
 
         }
 
@@ -124,7 +129,7 @@ namespace MSHB.TsetmcReader.WinApp
             timer1.Stop();
             if (loadExcel)
             {
-                loadFromExcel();
+                GetFilesPath();
             }
             else
             {
@@ -132,63 +137,114 @@ namespace MSHB.TsetmcReader.WinApp
             }
         }
 
-        private void LoadFromDB()
+        private void GetFilesPath()
         {
-            var type1Stocks = _Type1StockRepo.GetType1Stocks();
-            InstrumentPriceDic = new Dictionary<string, TargetPrice>();
-            // int counter = 0;
-            var targetPrices = type1Stocks.Convert<Type1StockDto, TargetPrice>();
-            foreach (var t in targetPrices)
+            folderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop;
+            string path = ConfigReaderHelper.GetExcelFolderPath();
+            folderBrowserDialog1.SelectedPath = ConfigReaderHelper.GetExcelFolderPath();
+           
+            var result = folderBrowserDialog1.ShowDialog(this);
+            if (result == DialogResult.OK)
             {
-                if (InstrumentPriceDic.ContainsKey(t.Symbol) == false)
-                    InstrumentPriceDic.Add(t.Symbol, t);
+                string selectedFolder = folderBrowserDialog1.SelectedPath;
+                foreach (var file in Directory.GetFiles(selectedFolder))
+                    loadFromExcel(file);
+                ConfigReaderHelper.SetExcelFolderPath(selectedFolder);
             }
-
+            CalculateMA();
             FillDataGrid();
         }
-
-        private async void loadFromExcel()
+        void CalculateMA()
         {
-            var result = openExcelFileDialog.ShowDialog();
-            if (result != DialogResult.OK)
-                return;
+            StockMA_Data = new Dictionary<string, MA_Data>();
+            
+            foreach (var insData in StockData)
+            {
+                try
+                {
+                    var ma = new MA_Data()
+                    {
+                        PE100 = (insData.Value.Where(x => x.PE > 0).Take(100).Sum(x => x.PE)) / 100,
+                        Price100 = (insData.Value.Where(x => x.Price > 0).Take(100).Sum(x => x.Price)) / 100,
+                        Earning100 = (insData.Value.Where(x => x.Earning > 0).Take(100).Sum(x => x.Earning)) / 100,
+                        PE500 = (insData.Value.Where(x => x.PE > 0).Take(500).Sum(x => x.PE)) / 500,
+                        Price500 = (insData.Value.Where(x => x.Price > 0).Take(500).Sum(x => x.Price)) / 500,
+                        Earning500 = (insData.Value.Where(x => x.Earning > 0).Take(500).Sum(x => x.Earning)) / 500
+                    };
+                    StockMA_Data.Add(insData.Key, ma);
+                }
+                catch { }
+            }
 
-            var dataTable = ExelReader.ReadExcelFileDOM(openExcelFileDialog.FileName);
+        }
+        private void LoadFromDB()
+        {
+            return;
+            //var type1Stocks = _Type1StockRepo.GetType1Stocks();
+            //InstrumentPriceDic = new Dictionary<string, TargetPrice>();
+            //// int counter = 0;
+            //var targetPrices = type1Stocks.Convert<Type1StockDto, TargetPrice>();
+            //foreach (var t in targetPrices)
+            //{
+            //    if (InstrumentPriceDic.ContainsKey(t.Symbol) == false)
+            //        InstrumentPriceDic.Add(t.Symbol, t);
+            //}
+
+            //FillDataGrid();
+        }
+
+        private void loadFromExcel(string filePath)
+        {
+            /*  var result = openExcelFileDialog.ShowDialog();
+              if (result != DialogResult.OK)
+                  return;*/
+
+            var dataTable = ExelReader.ReadExcelFileDOM(filePath);
             if (dataTable == null)
             {
                 MessageBox.Show("Please close the Excel file or Excel file is empty!");
-                this.Close();
                 return;
             }
+            FileInfo info = new FileInfo(filePath);
+            var insCode = info.Name;
+            if (StockData.ContainsKey(insCode) == true)
+                StockData.Remove(insCode);
+            StockData.Add(insCode, new List<Price_PE>());
 
-            InstrumentPriceDic = new Dictionary<string, TargetPrice>();
             int counter = 0;
+           
             foreach (var row in dataTable.ToArray())
             {
-                if (counter == 0 || row == null || row[0] == null)
+                if (counter < 8 || row == null || row[1] == null)
                 {
                     counter++;
                     continue;
                 }
-                var inscode = GetInsCode(row[0]);
-
-                var targetPrice = new TargetPrice
+                if (decimal.TryParse(row[6], out decimal price) &&
+                    decimal.TryParse(row[15], out decimal pe))
                 {
-                    InsCode = inscode == 0 ? "Not found" : inscode.ToString(),
-                    Symbol = row[0],
-                    Target1PricePercentage = 0,
-                    Target2PricePercentage = 0,
-                    Target3PricePercentage = 0,
-                    CurrentPrice = 0,
-                    TargetPrice1 = Math.Round(decimal.Parse(row[1]), 1),
-                    TargetPrice2 = Math.Round(decimal.Parse(row[2]), 1),
-                    TargetPrice3 = Math.Round(decimal.Parse(row[3]), 1),
-                    SupportPrice = Math.Round(decimal.Parse(row[4]), 1)
-                };
-                InstrumentPriceDic.Add(targetPrice.Symbol, targetPrice);
+                    var price_pe = new Price_PE()
+                    {
+                        PE = pe,
+                        Price = price,
+                        Earning = pe>0?(price/pe):-1
+                    };
+                    StockData[insCode].Add(price_pe);
+                }
+                if (StockData[insCode].Count > 600)
+                    break;
             }
-            FillDataGrid();
-            await SaveExcelDataInDB();
+            decimal lastValidEaring = 0; 
+            for(int k= StockData[insCode].Count-1; k>=0; k--)
+            {
+                if (StockData[insCode][k].Earning == -1)
+                    StockData[insCode][k].Earning = lastValidEaring;
+                else
+                    lastValidEaring = StockData[insCode][k].Earning;
+            }
+
+            //FillDataGrid();
+           // await SaveExcelDataInDB();
         }
 
         private void FillDataGrid()
@@ -200,21 +256,16 @@ namespace MSHB.TsetmcReader.WinApp
                 dg_InsData.AutoGenerateColumns = false;
                 int dgrow = 0;
                 dg_InsData.Rows.Clear();
-                InstrumentPriceDic.Values.ToList().ForEach(item =>
+                StockMA_Data.ToList().ForEach(x =>
                 {
                     dg_InsData.Rows.Add();
-                    dg_InsData["InsCode", dgrow].Value = item.InsCode?.ToString();
-                    dg_InsData["Name", dgrow].Value = item.Symbol;
-                    dg_InsData["Target1PricePercentage", dgrow].Value = item.Target1PricePercentage;
-                    dg_InsData["Target2PricePercentage", dgrow].Value = item.Target2PricePercentage;
-                    dg_InsData["Target3PricePercentage", dgrow].Value = item.Target3PricePercentage;
-                    dg_InsData["PriceSupportPercentage", dgrow].Value = item.PriceSupportPercentage;
-                    dg_InsData["CurrentPrice", dgrow].Value = item.CurrentPrice;
-                    dg_InsData["TargetPrice1", dgrow].Value = item.TargetPrice1;
-                    dg_InsData["TargetPrice2", dgrow].Value = item.TargetPrice2;
-                    dg_InsData["TargetPrice3", dgrow].Value = item.TargetPrice3;
-                    dg_InsData["SupportPrice", dgrow].Value = item.SupportPrice;
-
+                    dg_InsData["InsCode", dgrow].Value = x.Key;
+                    dg_InsData["Price100", dgrow].Value = Math.Round( x.Value.Price100, 2);
+                    dg_InsData["PE100", dgrow].Value = Math.Round(x.Value.PE100,2);
+                    dg_InsData["Earning100", dgrow].Value = Math.Round(x.Value.Earning100,2);
+                    dg_InsData["Price500", dgrow].Value = Math.Round(x.Value.Price500,2);
+                    dg_InsData["PE500", dgrow].Value = Math.Round(x.Value.PE500,2);
+                    dg_InsData["Earning500", dgrow].Value = Math.Round(x.Value.Earning500,2);
                     dgrow++;
                 });
             }
@@ -244,10 +295,10 @@ namespace MSHB.TsetmcReader.WinApp
             _InstrumentRepo.SaveInstrumentInDB(sembol, instrumentID);
         }
 
-        private async Task SaveExcelDataInDB()
-        {
-            await _Type1StockRepo.SaveType1StockDataAsync(InstrumentPriceDic.Values.ToList());
-        }
+        //private async Task SaveExcelDataInDB()
+        //{
+        //    await _Type1StockRepo.SaveType1StockDataAsync(InstrumentPriceDic.Values.ToList());
+        //}
 
         private void Freez_CHB_CheckedChanged(object sender, EventArgs e)
         {

@@ -51,36 +51,36 @@ namespace MSHB.TsetmcReader.Service.Repository
 
         }
 
-        public async Task SaveType1StockDataAsync(List<TargetPrice> targetPrices)
-        {
-            List<Type1Stock> ToUpdate = new List<Type1Stock>();
-            List<Type1Stock> ToInsert = new List<Type1Stock>();
-            using (var dbContext = new StockDbContext())
-            {
-                foreach (var targetPrice in targetPrices)
-                {
-                    if (targetPrice == null) continue;
-                    if (long.TryParse(targetPrice.InsCode, out long insCode) && insCode > 0)
-                    {
-                        var t1stock = dbContext.Type1Stock.FirstOrDefault(x => x.InsCode == insCode);
+        //public async Task SaveType1StockDataAsync(List<TargetPrice> targetPrices)
+        //{
+        //    List<Type1Stock> ToUpdate = new List<Type1Stock>();
+        //    List<Type1Stock> ToInsert = new List<Type1Stock>();
+        //    using (var dbContext = new StockDbContext())
+        //    {
+        //        foreach (var targetPrice in targetPrices)
+        //        {
+        //            if (targetPrice == null) continue;
+        //            if (long.TryParse(targetPrice.InsCode, out long insCode) && insCode > 0)
+        //            {
+        //                var t1stock = dbContext.Type1Stock.FirstOrDefault(x => x.InsCode == insCode);
 
-                        if (t1stock != null)
-                        {
-                            t1stock = mapper.Map<Type1Stock>(targetPrice);
-                            ToUpdate.Add(t1stock);
-                        }
-                        else
-                        {
-                            t1stock = mapper.Map<Type1Stock>(targetPrice);
-                            ToInsert.Add(t1stock);
-                        }
-                    }
+        //                if (t1stock != null)
+        //                {
+        //                    t1stock = mapper.Map<Type1Stock>(targetPrice);
+        //                    ToUpdate.Add(t1stock);
+        //                }
+        //                else
+        //                {
+        //                    t1stock = mapper.Map<Type1Stock>(targetPrice);
+        //                    ToInsert.Add(t1stock);
+        //                }
+        //            }
                     
-                }
-                await dbContext.BulkInsertAsync(ToInsert);
-                await dbContext.BulkUpdateAsync(ToUpdate);
-                await dbContext.SaveChangesAsync();
-            }
-        }
+        //        }
+        //        await dbContext.BulkInsertAsync(ToInsert);
+        //        await dbContext.BulkUpdateAsync(ToUpdate);
+        //        await dbContext.SaveChangesAsync();
+        //    }
+        //}
     }
 }

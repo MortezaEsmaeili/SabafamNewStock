@@ -100,7 +100,7 @@ namespace MSHB.TsetmcReader.WinApp
             this.ShowInTaskbar = true;
         }
 
-        public Dictionary<decimal, TargetPrice> InstrumentPriceDic;
+       // public Dictionary<decimal, TargetPrice> InstrumentPriceDic;
 
 
         private void cascateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,6 +173,14 @@ namespace MSHB.TsetmcReader.WinApp
             frmPriceHistory.MdiParent = this;
             OpenWindows.Add(frmPriceHistory);
             frmPriceHistory.Show();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            frmType1Excel frmType1 = new frmType1Excel(true);
+            frmType1.MdiParent = this;
+            OpenWindows.Add(frmType1);
+            frmType1.Show();
         }
     }
 }

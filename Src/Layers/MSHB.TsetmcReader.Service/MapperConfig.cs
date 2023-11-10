@@ -27,11 +27,11 @@ namespace MSHB.TsetmcReader.Service
                 
                 cfg.CreateMap<Instrument, InstrumentDto>().ReverseMap();
                 cfg.CreateMap<Type1Stock, Type1StockDto>().ReverseMap();
-                cfg.CreateMap<Type1StockDto, TargetPrice>();
-                cfg.CreateMap<TargetPrice, Type1Stock>()
-                     .ForMember(dest => dest.tmst, act => act.MapFrom(src => DateTime.Now))
-                     .ForMember(dest => dest.LastPrice, act => act.MapFrom(src => src.CurrentPrice))
-                     ;
+                //cfg.CreateMap<Type1StockDto, TargetPrice>();
+                //cfg.CreateMap<TargetPrice, Type1Stock>()
+                //     .ForMember(dest => dest.tmst, act => act.MapFrom(src => DateTime.Now))
+                //     .ForMember(dest => dest.LastPrice, act => act.MapFrom(src => src.CurrentPrice))
+                //     ;
 
                 //Any Other Mapping Configuration ....
             });

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Internal;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -45,5 +46,21 @@ namespace MSHB.TsetmcReader.WinApp.Helper
 
             return 60;
         }
+        public static string GetExcelFolderPath()
+        {
+            try
+            {
+                return ConfigurationManager.AppSettings["ExcelFolderPath"];
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
+        public static void SetExcelFolderPath(string path)
+        {
+            ConfigurationManager.AppSettings["ExcelFolderPath"]=path;
+        }
+
     }
 }

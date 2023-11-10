@@ -11,6 +11,6 @@ namespace MSHB.TsetmcReader.Service.Contract
     {
         Task ClearDataAsync();
         List<Type1StockDto> GetType1Stocks();
-        Task SaveType1StockDataAsync(List<TargetPrice> targetPrices);
+       // Task SaveType1StockDataAsync(List<TargetPrice> targetPrices);
     }
 }

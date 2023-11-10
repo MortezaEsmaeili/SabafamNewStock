@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,24 +37,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dg_InsData = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Freez_CHB = new System.Windows.Forms.CheckBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.InsCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Target1PricePercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Target2PricePercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Target3PricePercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceSupportPercentage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CurrentPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TargetPrice1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TargetPrice2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TargetPrice3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SupportPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PE100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Earning100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PE500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Earning500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_InsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,24 +67,20 @@
             this.dg_InsData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_InsData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InsCode,
-            this.Name,
-            this.Target1PricePercentage,
-            this.Target2PricePercentage,
-            this.Target3PricePercentage,
-            this.PriceSupportPercentage,
-            this.CurrentPrice,
-            this.TargetPrice1,
-            this.TargetPrice2,
-            this.TargetPrice3,
-            this.SupportPrice});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_InsData.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Price100,
+            this.PE100,
+            this.Earning100,
+            this.Price500,
+            this.PE500,
+            this.Earning500});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_InsData.DefaultCellStyle = dataGridViewCellStyle8;
             this.dg_InsData.Location = new System.Drawing.Point(1, 60);
             this.dg_InsData.Name = "dg_InsData";
             this.dg_InsData.ReadOnly = true;
@@ -125,114 +116,74 @@
             this.InsCode.ReadOnly = true;
             this.InsCode.Width = 86;
             // 
-            // Name
+            // Price100
             // 
-            this.Name.DataPropertyName = "Symbol";
-            this.Name.HeaderText = "Name";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
-            this.Name.ReadOnly = true;
-            this.Name.Width = 73;
+            this.Price100.DataPropertyName = "Price100";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Price100.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Price100.HeaderText = "Price100";
+            this.Price100.MinimumWidth = 6;
+            this.Price100.Name = "Price100";
+            this.Price100.ReadOnly = true;
+            this.Price100.Width = 88;
             // 
-            // Target1PricePercentage
+            // PE100
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.Target1PricePercentage.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Target1PricePercentage.HeaderText = "T1<->P %";
-            this.Target1PricePercentage.MinimumWidth = 6;
-            this.Target1PricePercentage.Name = "Target1PricePercentage";
-            this.Target1PricePercentage.ReadOnly = true;
-            this.Target1PricePercentage.Width = 94;
-            // 
-            // Target2PricePercentage
-            // 
+            this.PE100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PE100.DataPropertyName = "PE100";
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.NullValue = null;
-            this.Target2PricePercentage.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Target2PricePercentage.HeaderText = "T2<->P %";
-            this.Target2PricePercentage.MinimumWidth = 6;
-            this.Target2PricePercentage.Name = "Target2PricePercentage";
-            this.Target2PricePercentage.ReadOnly = true;
-            this.Target2PricePercentage.Width = 94;
+            this.PE100.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PE100.HeaderText = "PE100";
+            this.PE100.MinimumWidth = 6;
+            this.PE100.Name = "PE100";
+            this.PE100.ReadOnly = true;
+            this.PE100.Width = 75;
             // 
-            // Target3PricePercentage
+            // Earning100
             // 
+            this.Earning100.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Earning100.DataPropertyName = "Earning100";
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Target3PricePercentage.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Target3PricePercentage.HeaderText = "T3<->P %";
-            this.Target3PricePercentage.MinimumWidth = 6;
-            this.Target3PricePercentage.Name = "Target3PricePercentage";
-            this.Target3PricePercentage.ReadOnly = true;
-            this.Target3PricePercentage.Width = 94;
+            this.Earning100.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Earning100.HeaderText = "Earning100";
+            this.Earning100.MinimumWidth = 6;
+            this.Earning100.Name = "Earning100";
+            this.Earning100.ReadOnly = true;
+            this.Earning100.Width = 103;
             // 
-            // PriceSupportPercentage
+            // Price500
             // 
+            this.Price500.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Price500.DataPropertyName = "Price500";
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PriceSupportPercentage.DefaultCellStyle = dataGridViewCellStyle5;
-            this.PriceSupportPercentage.HeaderText = "P<->SP %";
-            this.PriceSupportPercentage.MinimumWidth = 6;
-            this.PriceSupportPercentage.Name = "PriceSupportPercentage";
-            this.PriceSupportPercentage.ReadOnly = true;
-            this.PriceSupportPercentage.Width = 96;
+            this.Price500.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Price500.HeaderText = "Price500";
+            this.Price500.MinimumWidth = 6;
+            this.Price500.Name = "Price500";
+            this.Price500.ReadOnly = true;
+            this.Price500.Width = 88;
             // 
-            // CurrentPrice
+            // PE500
             // 
-            this.CurrentPrice.DataPropertyName = "CurrentPrice";
+            this.PE500.DataPropertyName = "PE500";
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurrentPrice.DefaultCellStyle = dataGridViewCellStyle6;
-            this.CurrentPrice.HeaderText = "Current Price";
-            this.CurrentPrice.MinimumWidth = 6;
-            this.CurrentPrice.Name = "CurrentPrice";
-            this.CurrentPrice.ReadOnly = true;
-            this.CurrentPrice.Width = 112;
+            this.PE500.DefaultCellStyle = dataGridViewCellStyle6;
+            this.PE500.HeaderText = "PE500";
+            this.PE500.MinimumWidth = 6;
+            this.PE500.Name = "PE500";
+            this.PE500.ReadOnly = true;
+            this.PE500.Width = 75;
             // 
-            // TargetPrice1
+            // Earning500
             // 
-            this.TargetPrice1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TargetPrice1.DataPropertyName = "TargetPrice1";
+            this.Earning500.DataPropertyName = "Earning500";
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TargetPrice1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.TargetPrice1.HeaderText = "Target Price 1";
-            this.TargetPrice1.MinimumWidth = 6;
-            this.TargetPrice1.Name = "TargetPrice1";
-            this.TargetPrice1.ReadOnly = true;
-            this.TargetPrice1.Width = 120;
-            // 
-            // TargetPrice2
-            // 
-            this.TargetPrice2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TargetPrice2.DataPropertyName = "TargetPrice2";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TargetPrice2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.TargetPrice2.HeaderText = "Target Price 2";
-            this.TargetPrice2.MinimumWidth = 6;
-            this.TargetPrice2.Name = "TargetPrice2";
-            this.TargetPrice2.ReadOnly = true;
-            this.TargetPrice2.Width = 120;
-            // 
-            // TargetPrice3
-            // 
-            this.TargetPrice3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.TargetPrice3.DataPropertyName = "TargetPrice3";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TargetPrice3.DefaultCellStyle = dataGridViewCellStyle9;
-            this.TargetPrice3.HeaderText = "Target Price 3";
-            this.TargetPrice3.MinimumWidth = 6;
-            this.TargetPrice3.Name = "TargetPrice3";
-            this.TargetPrice3.ReadOnly = true;
-            this.TargetPrice3.Width = 120;
-            // 
-            // SupportPrice
-            // 
-            this.SupportPrice.DataPropertyName = "SupportPrice";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SupportPrice.DefaultCellStyle = dataGridViewCellStyle10;
-            this.SupportPrice.HeaderText = "Support Price";
-            this.SupportPrice.MinimumWidth = 6;
-            this.SupportPrice.Name = "SupportPrice";
-            this.SupportPrice.ReadOnly = true;
-            this.SupportPrice.Width = 117;
+            this.Earning500.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Earning500.HeaderText = "Earning500";
+            this.Earning500.MinimumWidth = 6;
+            this.Earning500.Name = "Earning500";
+            this.Earning500.ReadOnly = true;
+            this.Earning500.Width = 103;
             // 
             // frmType1Excel
             // 
@@ -242,7 +193,7 @@
             this.ClientSize = new System.Drawing.Size(1111, 436);
             this.Controls.Add(this.Freez_CHB);
             this.Controls.Add(this.dg_InsData);
-
+            this.Name = "frmType1Excel";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -261,16 +212,14 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
         private System.Windows.Forms.CheckBox Freez_CHB;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn InsCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Target1PricePercentage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Target2PricePercentage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Target3PricePercentage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PriceSupportPercentage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CurrentPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TargetPrice1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TargetPrice2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TargetPrice3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SupportPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Earning100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price500;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE500;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Earning500;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }

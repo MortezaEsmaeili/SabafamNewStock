@@ -43,18 +43,19 @@ namespace MSHB.TsetmcReader.WinApp
 
         private void LoadBelowTheSupportPrice()
         {
-            var type1Stocks = _Type1StockRepo.GetType1Stocks();
-            var InstrumentPriceDic = new Dictionary<string, TargetPrice>();
-            var targetPrices = type1Stocks.Convert<Type1StockDto, TargetPrice>();
-            foreach (var t in targetPrices)
-            {
-                if (InstrumentPriceDic.ContainsKey(t.Symbol) == false)
-                    InstrumentPriceDic.Add(t.Symbol, t);
-                var priceHistory = _InstrumentHistoryRepo.
-                    GetInsPrice(t.Symbol, t.InsCode, t.SupportPrice);
-                if (priceHistory != null)
-                    Add2List(priceHistory, t.SupportPrice);
-            }
+            return;
+            //var type1Stocks = _Type1StockRepo.GetType1Stocks();
+            //var InstrumentPriceDic = new Dictionary<string, TargetPrice>();
+            //var targetPrices = type1Stocks.Convert<Type1StockDto, TargetPrice>();
+            //foreach (var t in targetPrices)
+            //{
+            //    if (InstrumentPriceDic.ContainsKey(t.Symbol) == false)
+            //        InstrumentPriceDic.Add(t.Symbol, t);
+            //    var priceHistory = _InstrumentHistoryRepo.
+            //        GetInsPrice(t.Symbol, t.InsCode, t.SupportPrice);
+            //    if (priceHistory != null)
+            //        Add2List(priceHistory, t.SupportPrice);
+            //}
         }
 
         private void Add2List(Instrument10DaysHistoryDto priceHistory, decimal SupportPrice)
