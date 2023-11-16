@@ -88,19 +88,19 @@ namespace MSHB.TsetmcReader.WinApp
             // 
             this.tsmOpenBrowser.Enabled = false;
             this.tsmOpenBrowser.Name = "tsmOpenBrowser";
-            this.tsmOpenBrowser.Size = new System.Drawing.Size(195, 26);
+            this.tsmOpenBrowser.Size = new System.Drawing.Size(224, 26);
             this.tsmOpenBrowser.Text = "Start Reading ...";
             this.tsmOpenBrowser.Click += new System.EventHandler(this.tsmOpenBrowser_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(192, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
             // 
@@ -136,6 +136,7 @@ namespace MSHB.TsetmcReader.WinApp
             this.removeDataBaseToolStripMenuItem.Name = "removeDataBaseToolStripMenuItem";
             this.removeDataBaseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.removeDataBaseToolStripMenuItem.Text = "Remove DataBase";
+            this.removeDataBaseToolStripMenuItem.Visible = false;
             this.removeDataBaseToolStripMenuItem.Click += new System.EventHandler(this.removeDataBaseToolStripMenuItem_Click);
             // 
             // loadExcelToolStripMenuItem
@@ -150,6 +151,7 @@ namespace MSHB.TsetmcReader.WinApp
             this.loadFormToolStripMenuItem.Name = "loadFormToolStripMenuItem";
             this.loadFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.loadFormToolStripMenuItem.Text = "Live Form";
+            this.loadFormToolStripMenuItem.Visible = false;
             this.loadFormToolStripMenuItem.Click += new System.EventHandler(this.loadFormToolStripMenuItem_Click);
             // 
             // historyFormToolStripMenuItem
@@ -157,6 +159,7 @@ namespace MSHB.TsetmcReader.WinApp
             this.historyFormToolStripMenuItem.Name = "historyFormToolStripMenuItem";
             this.historyFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.historyFormToolStripMenuItem.Text = "History Form";
+            this.historyFormToolStripMenuItem.Visible = false;
             this.historyFormToolStripMenuItem.Click += new System.EventHandler(this.historyFormToolStripMenuItem_Click);
             // 
             // WinsStateToolStripMenuItem

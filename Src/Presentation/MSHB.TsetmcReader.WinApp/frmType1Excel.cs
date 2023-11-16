@@ -306,5 +306,10 @@ namespace MSHB.TsetmcReader.WinApp
         {
 
         }
+
+        private void LocateExcelFile_BT_Click(object sender, EventArgs e)
+        {
+            GetFilesPath();
+        }
     }
 }
