@@ -28,8 +28,8 @@ namespace MSHB.TsetmcReader.WinApp
         public frmMain()
         {
             //---------------------------------------------------
-            _instrumentRepo =  InstrumentRepository.Instance;
-            _Type1StockRepo = Type1StockRepository.Instance;
+       //     _instrumentRepo =  InstrumentRepository.Instance;
+        //    _Type1StockRepo = Type1StockRepository.Instance;
    //         _dbWorkerService = DBWorkerService.Instance;
             InitializeComponent();
         }

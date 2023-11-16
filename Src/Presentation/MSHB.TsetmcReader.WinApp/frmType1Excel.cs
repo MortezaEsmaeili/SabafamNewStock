@@ -36,10 +36,10 @@ namespace MSHB.TsetmcReader.WinApp
         public frmType1Excel(bool _loadExcel)
         {
             loadExcel = _loadExcel;
-            _Type1StockRepo = Type1StockRepository.Instance;
-            _InstrumentRepo = InstrumentRepository.Instance;
-            _RedisRepo = RedisRepository.Instance;
-            _RedisRepo.OnResultReady += RedisRepository_DataReady;
+       //     _Type1StockRepo = Type1StockRepository.Instance;
+         //   _InstrumentRepo = InstrumentRepository.Instance;
+       //     _RedisRepo = RedisRepository.Instance;
+         //   _RedisRepo.OnResultReady += RedisRepository_DataReady;
             //          _tsetDataAnalyzer = TsetmcDataAnalyzer.Instance;
             //          _tsetDataAnalyzer.OnResultReady += _tsetDataAnalyzer_OnResultReady;
 
