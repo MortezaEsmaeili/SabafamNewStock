@@ -110,15 +110,7 @@ namespace MSHB.TsetmcReader.WinApp
             this.tsmTime.Name = "tsmTime";
             this.tsmTime.Size = new System.Drawing.Size(107, 24);
             this.tsmTime.Text = "System Time";
-            // 
-            // tsmMinimize
-            // 
-            this.tsmMinimize.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tsmMinimize.Name = "tsmMinimize";
-            this.tsmMinimize.Size = new System.Drawing.Size(87, 24);
-            this.tsmMinimize.Text = "Hide App";
-            this.tsmMinimize.Visible = false;
-            this.tsmMinimize.Click += new System.EventHandler(this.tsmMinimize_Click);
+
             // 
             // type1ToolStripMenuItem
             // 
@@ -130,14 +122,6 @@ namespace MSHB.TsetmcReader.WinApp
             this.type1ToolStripMenuItem.Name = "type1ToolStripMenuItem";
             this.type1ToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
             this.type1ToolStripMenuItem.Text = "Type 1";
-            // 
-            // removeDataBaseToolStripMenuItem
-            // 
-            this.removeDataBaseToolStripMenuItem.Name = "removeDataBaseToolStripMenuItem";
-            this.removeDataBaseToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.removeDataBaseToolStripMenuItem.Text = "Remove DataBase";
-            this.removeDataBaseToolStripMenuItem.Visible = false;
-            this.removeDataBaseToolStripMenuItem.Click += new System.EventHandler(this.removeDataBaseToolStripMenuItem_Click);
             // 
             // loadExcelToolStripMenuItem
             // 
@@ -153,14 +137,6 @@ namespace MSHB.TsetmcReader.WinApp
             this.loadFormToolStripMenuItem.Text = "Live Form";
             this.loadFormToolStripMenuItem.Visible = false;
             this.loadFormToolStripMenuItem.Click += new System.EventHandler(this.loadFormToolStripMenuItem_Click);
-            // 
-            // historyFormToolStripMenuItem
-            // 
-            this.historyFormToolStripMenuItem.Name = "historyFormToolStripMenuItem";
-            this.historyFormToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.historyFormToolStripMenuItem.Text = "History Form";
-            this.historyFormToolStripMenuItem.Visible = false;
-            this.historyFormToolStripMenuItem.Click += new System.EventHandler(this.historyFormToolStripMenuItem_Click);
             // 
             // WinsStateToolStripMenuItem
             // 
@@ -259,7 +235,6 @@ namespace MSHB.TsetmcReader.WinApp
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.Resize += new System.EventHandler(this.frmMain_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSHB.TsetmcReader.Service",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSHB.TsetmcReader.DTO", "Src\Layers\MSHB.TsetmcReader.DTO\MSHB.TsetmcReader.DTO.csproj", "{2E600B1E-5510-4AA6-AECC-E545EAE52A0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSHB.TsetmcReader.Dal", "MSHB.TsetmcReader.Dal\MSHB.TsetmcReader.Dal.csproj", "{EB9AE919-EB10-4872-8BB7-22A35AB138C6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{2E600B1E-5510-4AA6-AECC-E545EAE52A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E600B1E-5510-4AA6-AECC-E545EAE52A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E600B1E-5510-4AA6-AECC-E545EAE52A0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB9AE919-EB10-4872-8BB7-22A35AB138C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB9AE919-EB10-4872-8BB7-22A35AB138C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB9AE919-EB10-4872-8BB7-22A35AB138C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB9AE919-EB10-4872-8BB7-22A35AB138C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,7 +43,6 @@ Global
 		{0F0B9AA8-8E58-49A8-87C5-00400A4053F0} = {E871726E-2629-46F4-AD75-2A0DB80C9F65}
 		{91FA7A06-2683-4E7B-8295-11114A6048F1} = {1D71E3BD-DD36-4125-B491-D859061F2ACC}
 		{2E600B1E-5510-4AA6-AECC-E545EAE52A0D} = {1D71E3BD-DD36-4125-B491-D859061F2ACC}
-		{EB9AE919-EB10-4872-8BB7-22A35AB138C6} = {1D71E3BD-DD36-4125-B491-D859061F2ACC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F925CED9-E5F2-4EC3-9CED-480F74559010}

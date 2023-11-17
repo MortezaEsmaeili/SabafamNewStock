@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
-using MSHB.TsetmcReader.DTO.DataModel;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MSHB.TsetmcReader.Service.Helper
 {

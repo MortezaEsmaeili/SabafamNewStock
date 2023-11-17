@@ -247,12 +247,6 @@
     <Compile Include="frmInsCode.Designer.cs">
       <DependentUpon>frmInsCode.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogger.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogger.Designer.cs">
-      <DependentUpon>frmLogger.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,12 +258,6 @@
     </Compile>
     <Compile Include="frmPleaseWait.Designer.cs">
       <DependentUpon>frmPleaseWait.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPriceHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPriceHistory.Designer.cs">
-      <DependentUpon>frmPriceHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmType1Excel.cs">
       <SubType>Form</SubType>
@@ -283,17 +271,11 @@
     <EmbeddedResource Include="frmInsCode.resx">
       <DependentUpon>frmInsCode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogger.resx">
-      <DependentUpon>frmLogger.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPleaseWait.resx">
       <DependentUpon>frmPleaseWait.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPriceHistory.resx">
-      <DependentUpon>frmPriceHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmType1Excel.resx">
       <DependentUpon>frmType1Excel.cs</DependentUpon>
@@ -325,12 +307,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MSHB.TsetmcReader.Dal\MSHB.TsetmcReader.Dal.csproj">
-      <Project>{eb9ae919-eb10-4872-8bb7-22a35ab138c6}</Project>
-      <Name>MSHB.TsetmcReader.Dal</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Layers\MSHB.TsetmcReader.DTO\MSHB.TsetmcReader.DTO.csproj">
-      <Project>{2e600b1e-5510-4aa6-aecc-e545eae52a0d}</Project>
+      <Project>{2E600B1E-5510-4AA6-AECC-E545EAE52A0D}</Project>
       <Name>MSHB.TsetmcReader.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Layers\MSHB.TsetmcReader.Service\MSHB.TsetmcReader.Service.csproj">

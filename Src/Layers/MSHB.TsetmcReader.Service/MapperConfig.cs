@@ -1,11 +1,4 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSHB.TsetmcReader.Dal;
-using MSHB.TsetmcReader.DTO.DataModel;
 
 namespace MSHB.TsetmcReader.Service
 {
@@ -24,14 +17,6 @@ namespace MSHB.TsetmcReader.Service
             //Provide all the Mapping Configuration
             var config = new MapperConfiguration(cfg =>
             {
-                
-                cfg.CreateMap<Instrument, InstrumentDto>().ReverseMap();
-                cfg.CreateMap<Type1Stock, Type1StockDto>().ReverseMap();
-                //cfg.CreateMap<Type1StockDto, TargetPrice>();
-                //cfg.CreateMap<TargetPrice, Type1Stock>()
-                //     .ForMember(dest => dest.tmst, act => act.MapFrom(src => DateTime.Now))
-                //     .ForMember(dest => dest.LastPrice, act => act.MapFrom(src => src.CurrentPrice))
-                //     ;
 
                 //Any Other Mapping Configuration ....
             });
