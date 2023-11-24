@@ -40,25 +40,26 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openExcelFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.dg_InsData = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Freez_CHB = new System.Windows.Forms.CheckBox();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.LocateExcelFile_BT = new System.Windows.Forms.Button();
             this.InsCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price_Price100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price_Price500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Earning_Earning100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Earning_Earning500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PE_PE100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PE_PE500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Earning = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PE100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Earning100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PE500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Earning500 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Freez_CHB = new System.Windows.Forms.CheckBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.LocateExcelFile_BT = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_InsData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +68,9 @@
             this.dg_InsData.AllowUserToAddRows = false;
             this.dg_InsData.AllowUserToDeleteRows = false;
             this.dg_InsData.AllowUserToOrderColumns = true;
+            this.dg_InsData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dg_InsData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dg_InsData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dg_InsData.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
@@ -78,8 +82,9 @@
             this.Price,
             this.Price_Price100,
             this.Price_Price500,
-            this.Earning_Earning100,
-            this.Earning_Earning500,
+            this.PE_PE100,
+            this.PE_PE500,
+            this.Earning,
             this.Price100,
             this.PE100,
             this.Earning100,
@@ -103,33 +108,6 @@
             this.dg_InsData.RowTemplate.Height = 24;
             this.dg_InsData.Size = new System.Drawing.Size(1098, 364);
             this.dg_InsData.TabIndex = 3;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Freez_CHB
-            // 
-            this.Freez_CHB.AutoSize = true;
-            this.Freez_CHB.Location = new System.Drawing.Point(26, 24);
-            this.Freez_CHB.Name = "Freez_CHB";
-            this.Freez_CHB.Size = new System.Drawing.Size(71, 20);
-            this.Freez_CHB.TabIndex = 5;
-            this.Freez_CHB.Text = "Freeze";
-            this.Freez_CHB.UseVisualStyleBackColor = true;
-            // 
-            // LocateExcelFile_BT
-            // 
-            this.LocateExcelFile_BT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LocateExcelFile_BT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.LocateExcelFile_BT.Location = new System.Drawing.Point(948, 17);
-            this.LocateExcelFile_BT.Name = "LocateExcelFile_BT";
-            this.LocateExcelFile_BT.Size = new System.Drawing.Size(132, 32);
-            this.LocateExcelFile_BT.TabIndex = 6;
-            this.LocateExcelFile_BT.Text = "Locate Excel Files";
-            this.LocateExcelFile_BT.UseVisualStyleBackColor = false;
-            this.LocateExcelFile_BT.Click += new System.EventHandler(this.LocateExcelFile_BT_Click);
             // 
             // InsCode
             // 
@@ -182,21 +160,29 @@
             this.Price_Price500.ReadOnly = true;
             this.Price_Price500.Width = 133;
             // 
-            // Earning_Earning100
+            // PE_PE100
             // 
-            this.Earning_Earning100.HeaderText = "Earning<>Earning100";
-            this.Earning_Earning100.MinimumWidth = 6;
-            this.Earning_Earning100.Name = "Earning_Earning100";
-            this.Earning_Earning100.ReadOnly = true;
-            this.Earning_Earning100.Width = 163;
+            this.PE_PE100.HeaderText = "PE<>PE100";
+            this.PE_PE100.MinimumWidth = 6;
+            this.PE_PE100.Name = "PE_PE100";
+            this.PE_PE100.ReadOnly = true;
+            this.PE_PE100.Width = 107;
             // 
-            // Earning_Earning500
+            // PE_PE500
             // 
-            this.Earning_Earning500.HeaderText = "Earning<>Earning500";
-            this.Earning_Earning500.MinimumWidth = 6;
-            this.Earning_Earning500.Name = "Earning_Earning500";
-            this.Earning_Earning500.ReadOnly = true;
-            this.Earning_Earning500.Width = 163;
+            this.PE_PE500.HeaderText = "PE<>PE500";
+            this.PE_PE500.MinimumWidth = 6;
+            this.PE_PE500.Name = "PE_PE500";
+            this.PE_PE500.ReadOnly = true;
+            this.PE_PE500.Width = 107;
+            // 
+            // Earning
+            // 
+            this.Earning.HeaderText = "Earning";
+            this.Earning.MinimumWidth = 6;
+            this.Earning.Name = "Earning";
+            this.Earning.ReadOnly = true;
+            this.Earning.Width = 82;
             // 
             // Price100
             // 
@@ -267,6 +253,34 @@
             this.Earning500.ReadOnly = true;
             this.Earning500.Width = 103;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Freez_CHB
+            // 
+            this.Freez_CHB.AutoSize = true;
+            this.Freez_CHB.Location = new System.Drawing.Point(26, 24);
+            this.Freez_CHB.Name = "Freez_CHB";
+            this.Freez_CHB.Size = new System.Drawing.Size(71, 20);
+            this.Freez_CHB.TabIndex = 5;
+            this.Freez_CHB.Text = "Freeze";
+            this.Freez_CHB.UseVisualStyleBackColor = true;
+            this.Freez_CHB.CheckedChanged += new System.EventHandler(this.Freez_CHB_CheckedChanged);
+            // 
+            // LocateExcelFile_BT
+            // 
+            this.LocateExcelFile_BT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LocateExcelFile_BT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.LocateExcelFile_BT.Location = new System.Drawing.Point(948, 17);
+            this.LocateExcelFile_BT.Name = "LocateExcelFile_BT";
+            this.LocateExcelFile_BT.Size = new System.Drawing.Size(132, 32);
+            this.LocateExcelFile_BT.TabIndex = 6;
+            this.LocateExcelFile_BT.Text = "Locate Excel Files";
+            this.LocateExcelFile_BT.UseVisualStyleBackColor = false;
+            this.LocateExcelFile_BT.Click += new System.EventHandler(this.LocateExcelFile_BT_Click);
+            // 
             // frmType1Excel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -293,7 +307,7 @@
         private System.Windows.Forms.OpenFileDialog openExcelFileDialog;
         private System.Windows.Forms.DataGridView dg_InsData;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
+    //    private System.Windows.Forms.DataGridViewTextBoxColumn Symbol;
         private System.Windows.Forms.CheckBox Freez_CHB;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
@@ -304,8 +318,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price_Price100;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price_Price500;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Earning_Earning100;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Earning_Earning500;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE_PE100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PE_PE500;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Earning;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price100;
         private System.Windows.Forms.DataGridViewTextBoxColumn PE100;
         private System.Windows.Forms.DataGridViewTextBoxColumn Earning100;

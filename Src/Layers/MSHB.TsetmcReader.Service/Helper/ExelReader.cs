@@ -53,7 +53,7 @@ namespace MSHB.TsetmcReader.Service.Helper
 
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { ex.ToString(); }
             return excelTable;
         }
 

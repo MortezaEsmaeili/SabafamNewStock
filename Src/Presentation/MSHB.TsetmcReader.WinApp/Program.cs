@@ -25,9 +25,6 @@ namespace MSHB.TsetmcReader.WinApp
                 MessageBox.Show("برنامه مشابهی در حال اجراست، لطفا ابتدا آن را بسته و سپس اقدام به باز کردن برنامه جدید کنید...", "خطای برنامه", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-
-            Z.EntityFramework.Extensions.LicenseManager.AddLicense("359;100-IRDEVELOPERS.COM", "7294E7E-9002EFC-5F2E804-9335FF3-CDEC");
             Application.Run(new frmMain());
         }
     }
